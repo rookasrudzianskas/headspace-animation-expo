@@ -1,5 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-
 import {
   Path,
   Skia,
@@ -33,6 +33,13 @@ export const Headspace = () => {
 
   const ContextBridge = useContextBridge(SafeAreaInsetsContext);
   const [toggled, setToggled] = useState(false);
+
+  const onTouch = useTouchHandler({
+    onEnd: () => {
+      setToggled(t => !t);
+    }
+  });
+
   useEffect(() => {
     clock.stop();
   }, [clock]);
@@ -42,7 +49,7 @@ export const Headspace = () => {
   }, [clock]);
 
   return (
-    <Canvas style={{ flex: 1 }}>
+    <Canvas style={{ flex: 1 }} onTouch={onTouch}>
       <ContextBridge>
         <Background clock={clock} />
         <Path path={path} color="#3B3A3A" />
