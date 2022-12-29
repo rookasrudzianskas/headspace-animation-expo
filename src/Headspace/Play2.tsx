@@ -78,6 +78,12 @@ export const Play = ({ progress, r }: Play2Props) => {
     <>
       <Paint ref={paint}>
         <Blur blur={10} />
+          <ColorMatrix matrix={[
+            1, 0, 0, 0, 0,
+            0, 1, 0, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, 20, -18,
+          ]} />
       </Paint>
       <Group
         transform={fitbox(

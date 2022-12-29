@@ -49,6 +49,12 @@ var Play = function (_a) {
     return (<>
       <react_native_skia_1.Paint ref={paint}>
         <react_native_skia_1.Blur blur={10}/>
+          <react_native_skia_1.ColorMatrix matrix={[
+            1, 0, 0, 0, 0,
+            0, 1, 0, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, 20, -10,
+        ]}/>
       </react_native_skia_1.Paint>
       <react_native_skia_1.Group transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))} layer={paint}>
         <react_native_skia_1.Path path={path} color="white"/>
