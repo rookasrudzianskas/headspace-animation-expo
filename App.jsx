@@ -1,14 +1,13 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import type { Routes } from "./src/Routes";
 import { Examples } from "./src/Examples";
 import { Headspace } from "./src/Headspace";
 import { LoadAssets } from "./src/components";
 
 const fonts = {};
-const assets: number[] = [];
-const Stack = createStackNavigator<Routes>();
+const assets = [];
+const Stack = createStackNavigator();
 const AppNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
