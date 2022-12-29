@@ -44,9 +44,9 @@ var Headspace = function () {
     var A = r * 0.2;
     var F = 1;
     var d1 = A * n1(clock.current * F, 0);
-    var d2 = A * n1(clock.current * F, 0);
-    var d3 = A * n1(clock.current * F, 0);
-    var d4 = A * n1(clock.current * F, 0);
+    var d2 = A * n2(clock.current * F, 0);
+    var d3 = A * n3(clock.current * F, 0);
+    var d4 = A * n4(clock.current * F, 0);
     var path = react_native_skia_1.useComputedValue(function () {
         var p = react_native_skia_1.Skia.Path.Make();
         p.moveTo(c.x, c.y - r);

@@ -60,9 +60,9 @@ export const Headspace = () => {
   const A = r * 0.2;
   const F = 1;
   const d1 = A * n1(clock.current * F, 0);
-  const d2 = A * n1(clock.current * F, 0);
-  const d3 = A * n1(clock.current * F, 0);
-  const d4 = A * n1(clock.current * F, 0);
+  const d2 = A * n2(clock.current * F, 0);
+  const d3 = A * n3(clock.current * F, 0);
+  const d4 = A * n4(clock.current * F, 0);
 
   const path = useComputedValue(() => {
     const p = Skia.Path.Make();
