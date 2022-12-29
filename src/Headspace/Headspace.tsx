@@ -8,7 +8,7 @@ import {
   Canvas,
   vec,
   useTouchHandler,
-  useTiming,
+  useTiming, useValueEffect, runTiming,
 } from "@shopify/react-native-skia";
 import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
@@ -30,7 +30,7 @@ const r = 50;
 
 export const Headspace = () => {
   const clock = useClockValue();
-
+  const progress = useValueEffect(0);
   const ContextBridge = useContextBridge(SafeAreaInsetsContext);
   const [toggled, setToggled] = useState(false);
 
@@ -41,8 +41,14 @@ export const Headspace = () => {
   });
 
   useEffect(() => {
-    clock.stop();
-  }, [clock]);
+    runTiming(progress, { to: toggled ? 1 : 0 }, { duration: 1000});
+    if(toggled) {
+      clock.start();
+    } else {
+      clock.stop();
+    }
+  }, [clock, toggled]);
+
   const path = useComputedValue(() => {
     const p = Skia.Path.Make();
     return p;
