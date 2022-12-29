@@ -63,7 +63,7 @@ export const Headspace = () => {
       <ContextBridge>
         <Background clock={clock} />
         <Path path={path} color="#3B3A3A" />
-        <Play c={c} r={r} />
+        <Play c={c} r={r} progress={progress} />
         <Overlay />
       </ContextBridge>
     </Canvas>

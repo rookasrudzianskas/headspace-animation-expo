@@ -53,7 +53,7 @@ var Play = function (_a) {
             1, 0, 0, 0, 0,
             0, 1, 0, 0, 0,
             0, 0, 1, 0, 0,
-            0, 0, 0, 20, -10,
+            0, 0, 0, 20, -18,
         ]}/>
       </react_native_skia_1.Paint>
       <react_native_skia_1.Group transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))} layer={paint}>

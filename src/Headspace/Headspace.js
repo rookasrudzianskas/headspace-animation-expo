@@ -44,7 +44,7 @@ var Headspace = function () {
       <ContextBridge>
         <Background_1.Background clock={clock}/>
         <react_native_skia_1.Path path={path} color="#3B3A3A"/>
-        <Play2_1.Play c={c} r={r}/>
+        <Play2_1.Play c={c} r={r} progress={progress}/>
         <Overlay_1.Overlay />
       </ContextBridge>
     </react_native_skia_1.Canvas>);
