@@ -82,9 +82,7 @@ export const Play = ({ progress, r }: Play2Props) => {
           rect(c.x - sr, c.y - sr, sr * 2, sr * 2)
         )}
       >
-        <Path path={path} color="white" >
-          <CornerPathEffect r={4} />
-        </Path>
+        <Path path={path} color="white" />
       </Group>
     </>
   );

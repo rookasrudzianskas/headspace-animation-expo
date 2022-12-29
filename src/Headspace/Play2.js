@@ -47,9 +47,7 @@ var Play = function (_a) {
     var sr = 0.8 * r;
     return (<>
       <react_native_skia_1.Group transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))}>
-        <react_native_skia_1.Path path={path} color="white">
-          <react_native_skia_1.CornerPathEffect r={4}/>
-        </react_native_skia_1.Path>
+        <react_native_skia_1.Path path={path} color="white"/>
       </react_native_skia_1.Group>
     </>);
 };
