@@ -22,5 +22,4 @@ var App = function () {
       <AppNavigator />
     </components_1.LoadAssets>);
 };
-// eslint-disable-next-line import/no-default-export
 exports["default"] = App;
