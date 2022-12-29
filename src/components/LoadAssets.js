@@ -106,9 +106,8 @@ var LoadAssets = function (_a) {
     if (!ready || !isNavigationReady) {
         return null;
     }
-    return (<native_1.NavigationContainer onStateChange={onStateChange} initialState={initialState}>
-      <expo_status_bar_1.StatusBar style="light"/>
-      {children}
-    </native_1.NavigationContainer>);
+    return (react_1["default"].createElement(native_1.NavigationContainer, { onStateChange: onStateChange, initialState: initialState },
+        react_1["default"].createElement(expo_status_bar_1.StatusBar, { style: "light" }),
+        children));
 };
 exports.LoadAssets = LoadAssets;

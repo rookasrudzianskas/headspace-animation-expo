@@ -54,6 +54,11 @@ export const Headspace = () => {
 
   const path = useComputedValue(() => {
     const p = Skia.Path.Make();
+    p.moveTo(c.x, c.y - r);
+    p.cubicTo(c.x, c.y - r, c.x + r, c.y, c.x + r, c.y);
+    p.cubicTo(c.x + r, c.y, c.x, c.y + r, c.x, c.y + r);
+    p.cubicTo(c.x, c.y + r, c.x - r, c.y, c.x - r, c.y);
+    p.cubicTo(c.x - r, c.y, c.x, c.y - r, c.x, c.y - r);
     return p;
   }, [clock]);
 

@@ -1,7 +1,6 @@
 "use strict";
 exports.__esModule = true;
 exports.Headspace = void 0;
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 var react_native_skia_1 = require("@shopify/react-native-skia");
 var react_1 = require("react");
@@ -38,15 +37,18 @@ var Headspace = function () {
     }, [clock, toggled]);
     var path = react_native_skia_1.useComputedValue(function () {
         var p = react_native_skia_1.Skia.Path.Make();
+        p.moveTo(c.x, c.y - r);
+        p.cubicTo(c.x, c.y - r, c.x + r, c.y, c.x + r, c.y);
+        p.cubicTo(c.x + r, c.y, c.x, c.y + r, c.x, c.y + r);
+        p.cubicTo(c.x, c.y + r, c.x - r, c.y, c.x - r, c.y);
+        p.cubicTo(c.x - r, c.y, c.x, c.y - r, c.x, c.y - r);
         return p;
     }, [clock]);
-    return (<react_native_skia_1.Canvas style={{ flex: 1 }} onTouch={onTouch}>
-      <ContextBridge>
-        <Background_1.Background clock={clock}/>
-        <react_native_skia_1.Path path={path} color="#3B3A3A"/>
-        <Play2_1.Play c={c} r={r} progress={progress}/>
-        <Overlay_1.Overlay />
-      </ContextBridge>
-    </react_native_skia_1.Canvas>);
+    return (react_1["default"].createElement(react_native_skia_1.Canvas, { style: { flex: 1 }, onTouch: onTouch },
+        react_1["default"].createElement(ContextBridge, null,
+            react_1["default"].createElement(Background_1.Background, { clock: clock }),
+            react_1["default"].createElement(react_native_skia_1.Path, { path: path, color: "#3B3A3A" }),
+            react_1["default"].createElement(Play2_1.Play, { c: c, r: r, progress: progress }),
+            react_1["default"].createElement(Overlay_1.Overlay, null))));
 };
 exports.Headspace = Headspace;

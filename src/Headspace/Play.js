@@ -31,9 +31,8 @@ var Play = function (_a) {
     var left = react_native_skia_1.useComputedValue(function () { return leftPath(progress.value); }, [progress]);
     var right = react_native_skia_1.useComputedValue(function () { return rightPath(progress.value); }, [progress]);
     var sr = r * 0.45;
-    return (<react_native_skia_1.Group color="white" transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))}>
-      <react_native_skia_1.Path path={left}/>
-      <react_native_skia_1.Path path={right}/>
-    </react_native_skia_1.Group>);
+    return (react_1["default"].createElement(react_native_skia_1.Group, { color: "white", transform: react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2)) },
+        react_1["default"].createElement(react_native_skia_1.Path, { path: left }),
+        react_1["default"].createElement(react_native_skia_1.Path, { path: right })));
 };
 exports.Play = Play;

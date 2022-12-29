@@ -42,11 +42,10 @@ var Background = function (_a) {
         var progress = getProgress(clock.current, 3800);
         return getCurve(react_native_skia_1.mix(easing(progress), c.y + 75, c.y + 225), react_native_skia_1.mix(easing(progress), 30, 50));
     }, [clock]);
-    return (<>
-      <react_native_skia_1.Fill color="#60d1b9"/>
-      <react_native_skia_1.Path path={p1} color={c1}/>
-      <react_native_skia_1.Path path={p2} color={c2}/>
-      <react_native_skia_1.Path path={p3} color={c3}/>
-    </>);
+    return (react_1["default"].createElement(react_1["default"].Fragment, null,
+        react_1["default"].createElement(react_native_skia_1.Fill, { color: "#60d1b9" }),
+        react_1["default"].createElement(react_native_skia_1.Path, { path: p1, color: c1 }),
+        react_1["default"].createElement(react_native_skia_1.Path, { path: p2, color: c2 }),
+        react_1["default"].createElement(react_native_skia_1.Path, { path: p3, color: c3 })));
 };
 exports.Background = Background;

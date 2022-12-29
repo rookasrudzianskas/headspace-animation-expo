@@ -20,7 +20,7 @@ var useContextBridge = function () {
     return react_1.useMemo(function () {
         return function (_a) {
             var children = _a.children;
-            return contexts.reduceRight(function (acc, Context, i) { return (<Context.Provider value={values[i]} children={acc}/>); }, children);
+            return contexts.reduceRight(function (acc, Context, i) { return (react_1["default"].createElement(Context.Provider, { value: values[i], children: acc })); }, children);
         };
     }, __spreadArray(__spreadArray([], contexts), values));
 };
