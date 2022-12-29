@@ -41,8 +41,8 @@ export const Headspace = () => {
   });
 
   useEffect(() => {
-    runTiming(progress, { to: toggled ? 1 : 0 }, { duration: 1000});
-    if(toggled) {
+    runTiming(progress, { to: toggled ? 1 : 0 }, { duration: 1000 });
+    if (toggled) {
       clock.start();
     } else {
       clock.stop();
