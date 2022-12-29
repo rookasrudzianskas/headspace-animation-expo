@@ -23,6 +23,12 @@ import { useContextBridge } from "./useContextBridge";
 const C = 0.55228474983079;
 const F = 0.0002;
 const A = 0.2;
+
+const n1 = createNoise2D(new alea("1"));
+const n2 = createNoise2D(new alea("2"));
+const n3 = createNoise2D(new alea("3"));
+const n4 = createNoise2D(new alea("4"));
+
 const { width, height } = Dimensions.get("window");
 const c = vec(width / 2, height / 2);
 const r = 50;
