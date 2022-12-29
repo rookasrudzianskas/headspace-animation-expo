@@ -56,15 +56,22 @@ export const Headspace = () => {
     } else {
       clock.stop();
     }
-  }, [clock, toggled]);
+  }, [clock, toggled, progress]);
+  const A = r * 0.2;
+  const F = 1;
+  const d1 = A * n1(clock.current * F, 0);
+  const d2 = A * n1(clock.current * F, 0);
+  const d3 = A * n1(clock.current * F, 0);
+  const d4 = A * n1(clock.current * F, 0);
 
   const path = useComputedValue(() => {
     const p = Skia.Path.Make();
+
     p.moveTo(c.x, c.y - r);
-    p.cubicTo(c.x + r * C, c.y - r, c.x + r, c.y -r * C, c.x + r, c.y);
-    p.cubicTo(c.x + r, c.y + r * C, c.x + r * C, c.y + r, c.x, c.y + r);
-    p.cubicTo(c.x - r * C, c.y + r, c.x - r, c.y + r * C, c.x - r, c.y);
-    p.cubicTo(c.x - r, c.y - r * C, c.x - r * C, c.y - r, c.x, c.y - r);
+    p.cubicTo(c.x + r * C + d1, c.y - r, c.x + r, c.y -r * C - d1, c.x + r, c.y);
+    p.cubicTo(c.x + r, c.y + r * C + d2, c.x + r * C + d2, c.y + r, c.x, c.y + r);
+    p.cubicTo(c.x - r * C -d3, c.y + r, c.x - r, c.y + r * C + d3, c.x - r, c.y);
+    p.cubicTo(c.x - r, c.y - r * C + d4, c.x - r * C + 24, c.y - r, c.x, c.y - r);
     return p;
   }, [clock]);
 
