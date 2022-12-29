@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import type { SkiaValue, Vector } from "@shopify/react-native-skia";
 import {
   usePaintRef,
@@ -13,6 +15,8 @@ import {
   Skia,
   Path,
   useComputedValue,
+  bounds,
+  rect,
 } from "@shopify/react-native-skia";
 import React from "react";
 import { Dimensions } from "react-native";
@@ -60,11 +64,21 @@ interface Play2Props {
   r: number;
 }
 
-export const Play = ({}: Play2Props) => {
+export const Play = ({ progress }: Play2Props) => {
+  const path = useComputedValue(
+    () => pause.interpolate(play, progress.current)!,
+    [progress]
+  );
   return (
     <>
-      <Group>
-        <Path path={play} color="white" />
+      <Group
+        transform={fitbox(
+          "contain",
+          bounds,
+          rect(c.x - sr, c.y - sr, sr * 2, sr * 2)
+        )}
+      >
+        <Path path={path} color="white" />
       </Group>
     </>
   );

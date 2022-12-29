@@ -8,7 +8,7 @@ import {
   Canvas,
   vec,
   useTouchHandler,
-  useTiming, useValueEffect, runTiming,
+  useTiming, useValueEffect, runTiming, Easing,
 } from "@shopify/react-native-skia";
 import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
@@ -41,7 +41,11 @@ export const Headspace = () => {
   });
 
   useEffect(() => {
-    runTiming(progress, { to: toggled ? 1 : 0 }, { duration: 1000 });
+    runTiming(
+      progress,
+      { to: toggled ? 1 : 0 },
+      { duration: 450, easing: Easing.inOut(Easing.ease)}
+    );
     if (toggled) {
       clock.start();
     } else {
