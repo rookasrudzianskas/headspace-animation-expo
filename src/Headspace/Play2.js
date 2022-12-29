@@ -39,6 +39,7 @@ play.transform(m3);
 var bounds = play.computeTightBounds();
 var Play = function (_a) {
     var progress = _a.progress, r = _a.r;
+    var paint = react_native_skia_1.usePaintRef();
     var path = react_native_skia_1.useComputedValue(function () {
         var p = pause.interpolate(play, progress.current);
         p.simplify();
@@ -46,7 +47,10 @@ var Play = function (_a) {
     }, [progress]);
     var sr = 0.8 * r;
     return (<>
-      <react_native_skia_1.Group transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))}>
+      <react_native_skia_1.Paint ref={paint}>
+        <react_native_skia_1.Blur blur={10}/>
+      </react_native_skia_1.Paint>
+      <react_native_skia_1.Group transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))} layer={paint}>
         <react_native_skia_1.Path path={path} color="white"/>
       </react_native_skia_1.Group>
     </>);

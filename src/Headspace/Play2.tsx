@@ -65,6 +65,7 @@ interface Play2Props {
 const bounds = play.computeTightBounds();
 
 export const Play = ({ progress, r }: Play2Props) => {
+  const paint = usePaintRef();
   const path = useComputedValue(
     () => {
       const p = pause.interpolate(play, progress.current)!;
@@ -75,12 +76,16 @@ export const Play = ({ progress, r }: Play2Props) => {
   const sr = 0.8 * r;
   return (
     <>
+      <Paint ref={paint}>
+        <Blur blur={10} />
+      </Paint>
       <Group
         transform={fitbox(
           "contain",
           bounds,
           rect(c.x - sr, c.y - sr, sr * 2, sr * 2)
         )}
+        layer={paint}
       >
         <Path path={path} color="white" />
       </Group>
