@@ -1,5 +1,4 @@
 //@ts-nocheck
-
 import type { SkiaValue, Vector } from "@shopify/react-native-skia";
 import {
   usePaintRef,
@@ -15,8 +14,7 @@ import {
   Skia,
   Path,
   useComputedValue,
-  bounds,
-  rect,
+  rect, CornerPathEffect,
 } from "@shopify/react-native-skia";
 import React from "react";
 import { Dimensions } from "react-native";
@@ -64,11 +62,17 @@ interface Play2Props {
   r: number;
 }
 
-export const Play = ({ progress }: Play2Props) => {
+const bounds = play.computeTightBounds();
+
+export const Play = ({ progress, r }: Play2Props) => {
   const path = useComputedValue(
-    () => pause.interpolate(play, progress.current)!,
-    [progress]
+    () => {
+      const p = pause.interpolate(play, progress.current)!;
+      p.simplify();
+      return p;
+    }, [progress]
   );
+  const sr = 0.8 * r;
   return (
     <>
       <Group
@@ -78,7 +82,9 @@ export const Play = ({ progress }: Play2Props) => {
           rect(c.x - sr, c.y - sr, sr * 2, sr * 2)
         )}
       >
-        <Path path={path} color="white" />
+        <Path path={path} color="white" >
+          <CornerPathEffect r={4} />
+        </Path>
       </Group>
     </>
   );
