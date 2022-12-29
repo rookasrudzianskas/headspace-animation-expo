@@ -73,6 +73,10 @@ export const Headspace = () => {
     p.cubicTo(c.x - r * C -d3, c.y + r, c.x - r, c.y + r * C + d3, c.x - r, c.y);
     p.cubicTo(c.x - r, c.y - r * C + d4, c.x - r * C + 24, c.y - r, c.x, c.y - r);
 
+    const m = Skia.Matrix();
+    m.translate(c.x, c.y);
+    m.rotate(clock.current * F);
+    p.transform(m);
     return p;
   }, [clock]);
 

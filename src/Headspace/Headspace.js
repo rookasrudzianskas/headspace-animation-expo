@@ -54,6 +54,10 @@ var Headspace = function () {
         p.cubicTo(c.x + r, c.y + r * C + d2, c.x + r * C + d2, c.y + r, c.x, c.y + r);
         p.cubicTo(c.x - r * C - d3, c.y + r, c.x - r, c.y + r * C + d3, c.x - r, c.y);
         p.cubicTo(c.x - r, c.y - r * C + d4, c.x - r * C + 24, c.y - r, c.x, c.y - r);
+        var m = react_native_skia_1.Skia.Matrix();
+        m.translate(c.x, c.y);
+        m.rotate(clock.current * F);
+        p.transform(m);
         return p;
     }, [clock]);
     return (react_1["default"].createElement(react_native_skia_1.Canvas, { style: { flex: 1 }, onTouch: onTouch },
