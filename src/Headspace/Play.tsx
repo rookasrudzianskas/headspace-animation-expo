@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import type { SkiaValue, SkPath, Vector } from "@shopify/react-native-skia";
-import { rect, fitbox, Group, Path, Skia } from "@shopify/react-native-skia";
+import {rect, fitbox, Group, Path, Skia, useComputedValue} from "@shopify/react-native-skia";
 import React from "react";
 import { interpolate } from "flubber";
 
@@ -45,6 +45,9 @@ interface PlayProps {
 }
 
 export const Play = ({ progress, c, r }: PlayProps) => {
+  const left = useComputedValue(() => leftPath(progress.value), [progress]);
+  const right = useComputedValue(() => rightPath(progress.value), [progress]);
+
   const sr = r * 0.45;
   return (
     <Group
@@ -55,8 +58,8 @@ export const Play = ({ progress, c, r }: PlayProps) => {
         rect(c.x - sr, c.y - sr, sr * 2, sr * 2)
       )}
     >
-      <Path path={playLeft} />
-      <Path path={playRight} />
+      <Path path={left} />
+      <Path path={right} />
     </Group>
   );
 };

@@ -28,10 +28,12 @@ var playRight = react_native_skia_1.Skia.Path.MakeFromSVGString("M9 126C4.5 124 
 var rightPath = Flubber2SkiaInterpolator(playRight, pauseRight);
 var Play = function (_a) {
     var progress = _a.progress, c = _a.c, r = _a.r;
+    var left = react_native_skia_1.useComputedValue(function () { return leftPath(progress.value); }, [progress]);
+    var right = react_native_skia_1.useComputedValue(function () { return rightPath(progress.value); }, [progress]);
     var sr = r * 0.45;
     return (<react_native_skia_1.Group color="white" transform={react_native_skia_1.fitbox("contain", bounds, react_native_skia_1.rect(c.x - sr, c.y - sr, sr * 2, sr * 2))}>
-      <react_native_skia_1.Path path={playLeft}/>
-      <react_native_skia_1.Path path={playRight}/>
+      <react_native_skia_1.Path path={left}/>
+      <react_native_skia_1.Path path={right}/>
     </react_native_skia_1.Group>);
 };
 exports.Play = Play;
