@@ -38,10 +38,10 @@ var Headspace = function () {
     var path = react_native_skia_1.useComputedValue(function () {
         var p = react_native_skia_1.Skia.Path.Make();
         p.moveTo(c.x, c.y - r);
-        p.cubicTo(c.x, c.y - r, c.x + r, c.y, c.x + r, c.y);
-        p.cubicTo(c.x + r, c.y, c.x, c.y + r, c.x, c.y + r);
-        p.cubicTo(c.x, c.y + r, c.x - r, c.y, c.x - r, c.y);
-        p.cubicTo(c.x - r, c.y, c.x, c.y - r, c.x, c.y - r);
+        p.cubicTo(c.x + r * C, c.y - r, c.x + r, c.y - r * C, c.x + r, c.y);
+        p.cubicTo(c.x + r, c.y + r * C, c.x + r * C, c.y + r, c.x, c.y + r);
+        p.cubicTo(c.x - r * C, c.y + r, c.x - r, c.y + r * C, c.x - r, c.y);
+        p.cubicTo(c.x - r, c.y - r * C, c.x - r * C, c.y - r, c.x, c.y - r);
         return p;
     }, [clock]);
     return (react_1["default"].createElement(react_native_skia_1.Canvas, { style: { flex: 1 }, onTouch: onTouch },
