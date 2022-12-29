@@ -36,8 +36,8 @@ export const Headspace = () => {
 
   const onTouch = useTouchHandler({
     onEnd: () => {
-      setToggled(t => !t);
-    }
+      setToggled((t) => !t);
+    },
   });
 
   useEffect(() => {
