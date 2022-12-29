@@ -7,7 +7,7 @@ import { interpolate } from "flubber";
 const bounds = { x: 0, y: 0, width: 100, height: 126 };
 
 const Flubber2SkiaInterpolator = (from: SkPath, to: SkPath) => {
-  const interpolator = interpolate(from.toSVGString(), to.toSVGString(), { maxSegmentLength: 1 });
+  const interpolator = interpolate(from.toSVGString(), to.toSVGString(), { maxSegmentLength: 50 });
   const d = 1e-3;
   const i0 = Skia.Path.MakeFromSVGString(interpolator(d))!;
   const i1 = Skia.Path.MakeFromSVGString(interpolator(1 - d))!;
